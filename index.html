@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <title>Facebook Video Downloader</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="asset/app.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body{
+    background: #fff;
+}
+.navbar, .dropdown-menu{
+background:#f83939;
+border: none;
+
+}
+
+.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+  border-bottom: 3px solid transparent;
+}
+.nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+  border-bottom: 3px solid transparent;
+  background: rgba(154, 154, 154, 0.27);
+}
+.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
+ color: #fff;
+}
+.dropdown-menu{
+      -webkit-box-shadow: none;
+    box-shadow:none;
+}
+
+.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
+  border-bottom: #b6f423 4px solid;
+}
+.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
+  border-bottom: #82e2ea 4px solid;
+}
+.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
+  border-bottom: #f8b42c 4px solid;
+}
+.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
+  border-bottom: #fd594a 4px solid;
+}
+.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
+  border-bottom: #e8479d 4px solid;
+}
+.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
+  border-bottom: #a12eeb 4px solid;
+}
+.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
+  border-bottom: #4785d9 4px solid;
+}
+.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
+  border-bottom: #2aed9a 4px solid;
+}
+
+.navbar-toggle .icon-bar{
+    color: #fff;
+    background: #000000;
+}
+
+/* Credit to bootsnipp.com for the css for the color graph 
+ ESTO SOLO ES PARA EL FORMULARIO DE LOGIN
+*/
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+</style>
+
+<body class="d-flex flex-column h-100">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Facebook Video Downloader</h5>
+        
+        <div class="navbar-wrapper">
+            <div class="container-fluid">
+                <nav class="navbar navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                    
+                            <a href="" title="Image from freepnglogos.com"><img src="fb.png" width="70px" alt="facebook icon png background" /></a>
+                        </div>
+                        <button class="btn-info btn" ><a href="https://ymate.vercel.app" target="_blank" style="text-decoration: none;">Go to youtube downloader</a></button>
+
+                        <a href="https://t.me/devil_0005" target="_blank" style="text-decoration: none;"><img src="tele.png" alt="" width="70px"></a>
+                        
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            <div class="title px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">Facebook Video Downloader</h1>
+            </div>
+            <div class="input-group">
+                <label class="sr-only" for="link">Facebook Video URL</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="link" placeholder="Facebook Video Link"
+                    name="link">
+                <span class="input-group-btn">
+                    <input type="button" name="download" id="download" value="Download!" class="btn btn-success btn-rounded"
+                        data-disable-with="Search" onclick="getDownloadLink();" style="border-radius: 10px;">
+                </span>
+            </div>
+            <div id="bar" style="display:none;">
+                <p class="text-center"><img src="asset/aja.gif"></p>
+            </div>
+            <div class="mt-3" id="result" style="display: none;">
+                <div id="downloadUrl">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex p-2 bg-primary text-white">Title</div>
+                            <div class="d-flex p-2 bg-dark text-white" id="title"></div>
+                        </div>
+                        <div class="col-md-12 mt-1">
+                            <div class="d-flex p-2 bg-primary text-white">Source</div>
+                            <div class="d-flex p-2 bg-dark text-white" id="source"></div>
+                        </div>
+                        <div class="col-md-12 mt-1">
+                            <div class="d-flex p-2 bg-primary text-white">Download Links:</div>
+                            <div class="p-2 bg-dark text-break" id="links"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="asset/app.js?v=4"></script>
+    
+</body>
+
+</html>
